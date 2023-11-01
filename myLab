@@ -1,0 +1,932 @@
+using System;
+using System.Diagnostics.Metrics;
+using System.Drawing;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace MyApp // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+            
+            Console.WriteLine("{0} - {0} = {0}", 15, 10, 5);
+            Console.WriteLine("15 - 10 = 5");
+            Console.ReadLine();
+
+            //*นิยามตัวแปร
+            int x = 10,y = 20,z;
+            z = x + y;
+            Console.WriteLine(z);
+            x = 100;
+            y = 1000;
+            z = y - x;
+            Console.WriteLine(z);
+
+            //foat
+            float a = 10.20f;
+            float b = 10f;
+
+            //double
+            double number1;
+            number1 = x+y;
+
+            //boolean
+            bool status = false;
+
+            //char & string
+            char al = 'A';
+            string name = "Manasanan";
+            Console.WriteLine(name);
+            Console.ReadKey();
+           
+
+            //*ค่าคงที่ ค่าเปลี่ยนไม่ได้ ตั้งชื่อพิมพ์ใหญ๋
+            const int NUMBER = 5000;
+            Console.WriteLine(NUMBER);
+            Console.ReadKey();
+            
+
+            //*กฏการตั้งชื่อตัวแปร
+            int _a = 100;
+            int @a = 200;
+            string name = "aom";
+            string Name = "Aom";
+            int _int = 15;
+            Console.WriteLine(name);
+            Console.ReadKey();
+            
+
+            //*การใช้ format String *
+            int number = 10;
+            Console.WriteLine("Number = {0}",number);
+            Console.WriteLine("Number = {0:E}", number);
+            Console.WriteLine("Number = {0:F4}", number);
+            Console.WriteLine("Number = {0:G}", number);
+            Console.WriteLine("Number = {0:N}", number);
+            Console.WriteLine("Number = {0:P}", number);
+            Console.WriteLine("Number = {0:X}", number);
+            Console.ReadKey();
+            
+
+            Console.Write("In put = ");
+            //*อ่านค่าตัวอักษร กับ อ่านค่าอักษรหลายตัว ที่รับเข้ามา *
+            //int result = Console.Read();
+            string result = Console.ReadLine();
+            Console.WriteLine("Out put = {0}" , result);
+            Console.ReadKey();
+
+            //*ตัวดำเนินการ operator + - * / %
+            int a = 10;
+            int b = 5;
+            int c = a + b;
+            Console.WriteLine(a+"+"+ b + " Result = {0}",c);
+            Console.WriteLine("Result = {0}", a + b);
+            Console.WriteLine("Result = {0}", a - b);
+            Console.WriteLine("Result = {0}", a * b);
+            Console.WriteLine("Result = {0}", a / b);
+            Console.WriteLine("Result = {0}", a % b);
+            Console.ReadKey();
+            
+
+            //*ฟังค์ชั่นทางคณิตศาสตร์ ใช้Math. ตัวอย่างฟังค์ชั่นยอดฮิต
+            float number = 15.49f;
+            //หาค่าสัมบูรณ์ |x|
+            float result = Math.Abs(number);
+            Console.WriteLine("Abs = {0}", result);
+            //ปัดเศษขึ้น 15.1 = 16
+            Console.WriteLine("Ceiling = {0}",Math.Ceiling(number));
+            //ปัดเศษลง 15.9 = 15
+            Console.WriteLine("Floor = {0}", Math.Floor(number));
+            //ปัดเศษแบบปกติ >=.5 ปัดขึ้นน้อยกว่าปัดลง
+            Console.WriteLine("Round = {0}", Math.Round(number));
+            //ยกกำลัง
+            Console.WriteLine("Power = {0:F2}", Math.Pow(number,3));
+            //รากที่สอง
+            Console.WriteLine("Square root = {0}", Math.Sqrt(25));
+            //ค่า PI
+            Console.WriteLine("PI = {0:F3}", Math.PI);
+            //ค่า E *
+            Console.WriteLine("E = {0}", Math.E);
+            Console.ReadKey();
+            
+
+            //*ตัวดำเนินการ == != < > <= >= (ได้ค่า boolean)
+            int n1 = 50, n2 = 100;
+            Console.WriteLine(n1 + "="+ n2 + (n1 == n2));
+            Console.WriteLine(n1 + "!=" + n2 + ( n1 != n2));
+            Console.WriteLine(n1 + ">" + n2 + ( n1 > n2));
+            Console.WriteLine(n1 + "<" + n2 + (n1 < n2));
+            Console.WriteLine(n2 + ">=" + n2 + (n2 >= n2));
+            Console.WriteLine(n1 + "<=" + n2 + (n1 <= n2));
+            Console.ReadKey();
+            
+
+            //*ตัวดำเนินการเพิ่มค่า ++a a++
+            //Prefix ++a ,Postfix a++ (ค่าลบก็หลักการเดียวกัน --a,a--)
+            int a = 5;
+            int b = 10;
+            Console.WriteLine("(+)a = {0}", a); //5
+            Console.WriteLine("Prefix = {0}", ++a); //6 +1 ก่อนแล้วนำไปใช้เลย
+            Console.WriteLine("last a = {0}",  a); //6
+            Console.WriteLine("(+)b = {0}",b); //10
+            Console.WriteLine("Postfix = {0}",b++);  //10 นำไปใช้ก่อนแล้วค่อย +1
+            Console.WriteLine("late b = {0}",b);  //11
+            //ตอนนี้ aเป็น6 bเป็น11 แล้ว
+            Console.WriteLine("(-)a = {0}", a); //6
+            Console.WriteLine("Prefix = {0}",--a); //5 -1 ก่อนแล้วนำไปใช้เลย
+            Console.WriteLine("last a = {0}", a); //5
+            Console.WriteLine("(-)b = {0}", b); //11
+            Console.WriteLine("Postfix = {0}", b--);  //11 นำไปใช้ก่อนแล้วค่อย -1
+            Console.WriteLine("late b = {0}", b);  //10
+            Console.ReadKey();
+            
+
+
+            //*compound เขียนสมการทางคณิตศาสตร์แบบลดรูป
+            int x = 10, y = 15;
+            x += y; // หมายถึง x = x + y; +=,-=,*=,/=,%=
+            Console.WriteLine(x);
+            Console.ReadKey();
+            
+
+            //*ดำลับความสำคุญตัวดำเนินการ
+            //สำคคัญจากบนลงล่าง (บรรทัดเดียวกับความสำคัญเท่ากันให้คิดจากซ้ายไปขวา)
+            // ()
+            // ++ --
+            // * / %
+            Console.WriteLine(10 / 5 * 3);
+            // + -
+            Console.WriteLine(10 - 5 + 1);
+            // < <= > >=
+            // == !=
+            // && ||
+            // = += -= *= /= %=
+            Console.ReadKey();
+            
+            
+
+            //*การแปลงชนิดข้อมูล
+            // 1.ใช้ Convert Class เช่น byte x = Convet.ToByte(ค่าที่จะแปรง)
+            // ต้องเป็นค่าที่สามารถเก็บเป็น byte 
+            string myString = "120";
+
+            //แปรงข้อความเลขเป็นเลขจำวนเต็ม *รูปแบบข้อความต้องเป็นตัวเลขจำนวนเต็ม
+            byte myByte = Convert.ToByte(myString);
+            short myShort = Convert.ToInt16(myString);
+            int myInt = Convert.ToInt32(myString);
+            long myLong = Convert.ToInt64(myString);
+
+            //แปรงข้อความเลขเป็นเลขทศนิยม *รูปแบบข้อความเป็นตัวเลขหรือทศนิยม 
+            string t1 = "515.3";
+            float myFoat = Convert.ToSingle(t1);
+            double myDouble = Convert.ToDouble(t1);
+
+            //แปรงเลขต่างๆเป็นข้อความ
+            string myText = Convert.ToString(myDouble);
+
+            //แสดงผล
+            Console.WriteLine("String = {0} ", myString +100);
+            Console.WriteLine("byte = {0} ", myByte + 100);
+            Console.WriteLine("short = {0} ", myShort +100);
+            Console.WriteLine("int = {0} ", ++myInt);
+            Console.WriteLine("long = {0} ", myLong);
+            Console.WriteLine("foat = {0} ", myFoat);
+            Console.WriteLine("double = {0} ", myDouble+33.5);
+            Console.WriteLine("double to String{0} ", myText+33.5);
+            Console.ReadKey();
+            
+            //เปลี่ยนintเป็น double เปลี่ยน boolean เป็น String ก็ได้ และอิื่นๆ
+            int x = Convert.ToInt16(1.58);
+            Console.WriteLine(x);
+            Console.ReadKey();
+            
+
+            // 2.ใช้ Parse int x = int.parse("100") 100เคยเป็นstring ก็จะถูกเก็บเป็น int
+            //รูปแบบของ string ต้องตรงกับชนิดข้อมูล เช่น "100.00" จะ pase เป็น int ไม่ได้
+
+            //input  (ได้เฉพาะรับมาเป็น String)
+            //เช่น เปลี่ยน int เป็น double ไม่ได้(ต้องใช้ class convertแทน)
+            string myString = "200";
+
+            //process
+            //byte myByte = byte.Parse(myString);
+            // short myShort = short.Parse(myString);
+            //int myInt = int.Parse(myString);
+            //long myLong = long.Parse(myString);
+            //float myFloat = float.Parse(myString);
+             //double myDouble = double.Parse(myString);
+
+            //output
+            //Console.WriteLine("byte = {0}",myByte);
+            //Console.WriteLine("short = {0}", myShort);
+            //Console.WriteLine("int = {0}", myInt);
+            //Console.WriteLine("long = {0}", myLong);
+            //Console.WriteLine("float = {0}", myFloat);
+            //Console.WriteLine("double = {0}", myDouble);
+            Console.ReadKey();
+            
+
+            // 3.ใช้ TryParse (ได้ boolean ที่เช็คว่าสามารถเปรียบเทียบได้ไหม)
+            string myString2 = "200.15%";
+            int myInt2;
+            double myDouble2;
+            //ถ้าแปรงไม่ได้ค่า myInt2 จะกลายเป็น 0
+            bool success = int.TryParse(myString2, out myInt2);
+            bool check = double.TryParse(myString2, out myDouble2);
+            Console.WriteLine("success = {0}", success);
+            Console.WriteLine("int = {0}", myInt2);
+            Console.WriteLine("check = {0}", check);
+            Console.WriteLine("double = {0}", myDouble2);
+            Console.ReadKey();
+           
+
+
+            //*Narrowing Casting การแปรงชนิดข้อมูล ใหญ่->เล็ก (ถ้าเล็ก->ใหญ่จะแปรงได้เลย)
+            //double > float > long > int > char > short > byte
+            double x = 100.15;
+            int y = (int)x;
+            float z = (float)x;
+            Console.WriteLine(z);
+            Console.ReadKey();
+           
+
+
+            //**โปรแกรมคำนวน BMI
+            //ประกาสตัวแปร
+            double weight, height;
+
+            //input 
+            Console.Write("input Weight (kg):");
+            //เช็คว่าค่าที่รับมาเป็น doubleไหม
+            double.TryParse(Console.ReadLine(), out weight);
+
+            Console.Write("input Height (cm):");
+            double.TryParse(Console.ReadLine(), out height);
+
+            //process
+            //สมการคิดBMI = weight/height^2
+            height /= 100;
+            double bmi = weight / Math.Pow(height, 2);
+
+
+            //output
+            Console.WriteLine("Your BMI = {0:F2}", bmi);
+            Console.ReadKey();
+
+
+            //โครงสร้างควบคุม(Control Stricture)
+            //*การใช้ if statement
+            //int number = 18;
+            int num1;
+            Console.Write("input number");
+            int.TryParse(Console.ReadLine(), out num1);
+
+            if (num1 % 2 == 0)
+            {
+                //หารลงตัว
+                Console.WriteLine("{0} is Even number", num1);
+            }
+            else
+            {
+                //ถ้าไม่
+                Console.WriteLine("{0} is Odd number", num1);
+            }
+            Console.Write("End");
+            Console.ReadKey();
+
+
+            //*if else หลายอัน แสดงเกรด
+            int score;
+            Console.WriteLine("In put Score= ");
+            int.TryParse(Console.ReadLine(), out score);
+
+            if (score >= 80)
+            {
+                Console.Write("A");
+            }
+            else if (score >= 70)
+            {
+                Console.Write("B");
+            }
+            else if (score >= 60)
+            {
+                Console.Write("C");
+            }
+            else if (score >= 50)
+            {
+                Console.Write("D");
+            }
+            else
+            {
+                Console.Write("F");
+            }
+            Console.ReadKey();
+
+
+            //*ข้อควรระวังของการเขียน if จะเช็คทุกกรณีถ้าไม่มี else (เหมาะกับบางกรณี) 
+            int score;
+            Console.WriteLine("In put Score= ");
+            int.TryParse(Console.ReadLine(), out score);
+            //เขียนแล้วผลลัพท์ไม่ตรงตามต้องการ
+            if (score >= 80)
+            {
+                Console.Write("A");
+            }
+            if (score >= 70)
+            {
+                Console.Write("B");
+            }
+            if (score >= 60)
+            {
+                Console.Write("C");
+            }
+            if (score >= 50)
+            {
+                Console.Write("D");
+            }
+            else
+            {
+                Console.Write("F");
+            }
+            Console.ReadKey();
+
+
+
+            //ตัวดำเนินการทางตรรกศาสตร์ &&(and) ||(or) !(not) 
+            //วิธีใช้ ! เช่น if(!(x==5))
+            string gender;
+            Console.WriteLine("Input gender =");
+            gender = Console.ReadLine();
+
+            int height;
+            Console.WriteLine("Input height = ");
+            int.TryParse(Console.ReadLine(), out height);
+
+            if (gender == "male" && height >= 160)
+            {
+                Console.Write("Pass");
+            }
+            else
+            {
+                Console.Write("Not pass");
+            }
+            Console.ReadKey();
+
+
+            //*โปรแกรมคำนวนเกรดอย่างง่าย
+            int score;
+            Console.Write("Score =");
+            int.TryParse(Console.ReadLine(), out score);
+            if (score >= 80 && score <= 100)
+            {
+                Console.WriteLine("you got grade A  Score = {0}", score);
+            }
+            else
+            if (score < 80 && score >= 70)
+            {
+                Console.WriteLine("you got grade B  Score = {0}", score);
+            }
+            else
+            {
+                Console.WriteLine("F");
+            }
+            //เขียนแบบนี้ดีกว่า
+
+            int Score;
+            string grade;
+            Console.WriteLine("Input score :");
+            int.TryParse(Console.ReadLine(), out Score);
+            if (Score >= 80 && Score <= 100)
+            {
+                grade = "A";
+            }
+            else if (Score >= 70 && Score <= 79)
+            {
+                grade = "B";
+            }
+            else
+            {
+                grade = "Not found ";
+            }
+            Console.WriteLine("Score = {0} , Grade = {1}", Score, grade);
+            Console.ReadKey();
+
+
+
+            //*Ternary Operator if else แบบลดรูป
+            int score = 50;
+            string result;
+
+            if (score >= 50)
+            {
+                result = "Pass";
+            }
+            else
+            {
+                result = "not Pass";
+            }
+            //เขียนแบบนี้ดีกว่า
+            result = (score >= 50) ? "Pass" : "Not Pass";
+            Console.WriteLine("Status = {0}", result);
+            Console.ReadKey();
+
+
+            //*ifซ้อนif เหมือนด่าน1ด่าน2(ต้องผ่านด่าน1ก่อนไป2)
+            //โปรแกรมคำนวนส่วนลด
+            int money = 3000;
+            if (money >= 15000)
+            {
+                Console.WriteLine("Sale");
+                if (money >= 15000 && money < 20000)
+                {
+                    Console.WriteLine("Sale 10%");
+                }
+                else if (money >= 20000 && money < 30000)
+                {
+                    Console.WriteLine("Sale 20%");
+                }
+                else if (money >= 30000)
+                {
+                    Console.WriteLine("Sale 30%");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not sale");
+            }
+            Console.ReadKey();
+
+
+            //*Switch case คล้าย if ต่างตรง่เลือกเงื่อนไขเดียว
+            //โปรแกรมคำนวนเลข
+            int number1, number2, choice, result;
+            Console.Write("Input numer1 = ");
+            int.TryParse(Console.ReadLine(), out number1);
+            Console.Write("Input number2 = ");
+            int.TryParse(Console.ReadLine(), out number2);
+            Console.Write("Input Choice + is 1 - is 2 = ");
+            int.TryParse(Console.ReadLine(), out choice);
+
+            switch (choice)
+            {
+                case 1:
+                    result = number1 + number2;
+                    Console.WriteLine(result);
+                    break;
+                case 2:
+                    result = number1 - number2;
+                    Console.WriteLine(result);
+                    break;
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+
+            Console.ReadKey();
+
+
+            //*while loop ทำซ้ำจนตามเงื่อนไขกวจนกว่าจะออกจาก loop
+            // - ไม่รู้จำนวนรอบ
+            int count = 12; //ใช้ควบคุมจำนวนรอบ
+            int number;
+            Console.Write("input number : ");
+            int.TryParse(Console.ReadLine(), out number);
+            while (count >= 1)  //เงื่อนไขตรงนี้เป็นจริงค่อยทำซ้ำ
+            {
+                //คำสั่งที่ให้ทำซ้ำ สูตรคูณแม่2
+                Console.WriteLine("{0} x {1}={2}", number, count, number * count);
+                count--;
+            }
+            Console.ReadKey();
+
+
+            //*for loop ทำซ้ำเมื่อข้างในเงื่อนไข loopเป็นจริง จนกว่าจะเป็นเท็จ จึงออกจากloop 
+            // - มีการกำหนดจุดเริ่มต้น สิ้นสุด รู้จำนวนรอบชัดเจน
+            int number;
+            Console.Write("input number");
+            int.TryParse(Console.ReadLine(), out number);
+            for (int count = 1; count <= 12; count++) //
+            {
+                Console.WriteLine("{0}x{1} = {2}", number, count, number * count);
+            }
+            Console.ReadKey();
+
+
+            //*Do While ทำแล้วค่อยเข้าไปในเงื่อนไขของ loop (ฉะนั้นจะทำองานย่างน้อย1รอบ)
+
+            int count = 1;
+            do
+            {
+                Console.WriteLine("Hello");
+                count++;
+            } while (count <= 3);
+            Console.WriteLine("End ");
+            Console.ReadKey();
+            
+
+            //*breakหยุด  continouseข้าม
+            int number;
+            Console.Write("input number");
+            int.TryParse(Console.ReadLine(), out number);
+            for (int count = 1; count <= 12; count++) 
+            {
+                if (count==5)
+                {
+                    break;
+                }
+                if (count == 3)
+                {
+                    continue; //เมื่อcount=3 คำสั่งว่าให้ทำอะไรจะถูกข้ามไป
+                }
+                Console.WriteLine("{0}x{1} = {2}", number, count, number * count);
+            }
+            Console.WriteLine("End");
+            Console.ReadKey();
+            
+
+            //*สรุป
+            //for ใช้เมื่อรู้่จำนวนรอบ
+            //while เมื่อไม่รู้จำนวนรอบ
+            //do..while เมื่อต้องการให้ลองทำก่อนหนึ่งครั้ง
+
+            //โจทย์คำนวน หาsum avg เมื่อป้อนเลขไป5ค่า
+            int sum=0;
+            int avg = 0;
+            for(int count = 1; count <= 5; count++)
+            {
+                int number;
+                Console.Write("input number");
+                int.TryParse(Console.ReadLine(), out number);
+                sum += number;
+               
+            }
+            avg = sum / 5;
+            Console.WriteLine("Sum = {0}",sum);
+            Console.WriteLine("Avg = {0}", avg);
+            Console.ReadKey();
+            
+
+            //โจทย์คำนวน หาsum avg เมื่อป้อนเลขไป n ค่า เมื่อป้อนค่าติด- ให้จบการทำงาน
+            int sum = 0;
+            int avg = 0;
+            int count = 0;
+            while (true) {
+                int number;
+                Console.Write("input number");
+                int.TryParse(Console.ReadLine(), out number);
+                if (number < 0)
+                {
+                    break;
+                }
+                sum += number;
+                count++;
+            }
+            avg = sum / count;
+            Console.WriteLine("Sum = {0}", sum);
+            Console.WriteLine("Avg = {0}", avg);
+            Console.ReadKey();
+            
+
+            //โจทย์ หาเลขต่ำสุด-สูงสุด โดยรับเลขมา n ค่า ถ้าเลขติด-ให้จบการทำงาน
+            int maxNumber = 0;
+            int minNumber = int.MaxValue; //ค่าสูงสุดของ int คือ 214783647
+            while (true)
+            {
+                int number;
+                Console.Write("input number");
+                int.TryParse(Console.ReadLine(), out number);
+                if (number < 0)
+                {
+                    break;
+                }
+                if (number>=maxNumber)
+                {
+                    maxNumber = number;
+                }
+                if (number <= minNumber)
+                {
+                    minNumber = number;
+                }
+
+            }
+            Console.WriteLine("Max = {0}",maxNumber);
+            Console.WriteLine("Min = {0}", minNumber);
+            Console.ReadKey();
+            
+
+            //โปรแกรมตู่ ATM
+            int money;
+      
+            do
+            { 
+                Console.Write("input money = ");
+                int.TryParse(Console.ReadLine(), out money);
+            } while ((money%100 != 0) || money>=20000 || money<=300); //เช็คจำนวนเงินว่าไม่เป็นหลัก10 หรือหน่วย
+
+            Console.WriteLine("Money = {0}",money);
+            Console.WriteLine("1000 Bath = {0}", money/1000);
+            money %= 1000;
+            Console.WriteLine("500 Bath = {0}", money / 500);
+            money %= 500;
+            Console.WriteLine("100 Bath = {0}", money / 100);
+            Console.ReadKey();
+            
+
+
+            //*Array เก็บกลุ่มข้อมูล (1 ตัวแปรสามารถเก็บค่าได้มากกว่า1ค่า)
+            //ใช้ตัวแปรชื่อและชนิดเดียวกัน โดยใช้ index เป็รเลขอ้างอิงตำแหน่งข้อมูล
+            //มีขนาดแน่นอน
+
+            //ประกาศตัวแปรแบบไม่กำหนดค่าเริ่มต้น แบบจองพื้นที่ไว้เฉยๆ
+            int[] number = new int[3];
+            number[0] = 100;
+            number[1] = 200;
+            number[2] = 300;
+            Console.WriteLine("number index 0 = {0}", number[0]);
+            Console.WriteLine("number index 1 = {0}", number[1]);
+            Console.WriteLine("number index 2 = {0}",number[2]);
+            //นับจำนวนคว่ามีกี่ค่่าที่มีใน array 
+            Console.WriteLine("count of index = {0}", number.Length);
+            //ประกาศตัวแปรแบบกำหนดค่าเริ่มต้น
+            string[] pets = { "cat", "dog", "ant", "rat" };
+            Console.WriteLine("Pets index 0 = {0}", pets[0]);
+            Console.WriteLine("Pets index 1 = {0}", pets[1]);
+            Console.WriteLine("Pets index 2 = {0}", pets[2]);
+            Console.WriteLine("Pets index 3 = {0} {1}", pets[3],pets.Length);
+         
+            //การใช้ for loop แสดงค่าใน array แทนการพิมพ์เองทั้งหมดแบบข้างบน
+            for (int i =0;i<pets.Length ;i++)
+            {
+                Console.WriteLine("Pets index {0} = {1}", i, pets[i]);
+            }
+
+            //การใช้ foreach แทน for loop //สร้างตัวแปร name มาเก็บค่าสมาชิกใน array pets ต้องเป็นชนิดข้อมูลเดียวกับ pets นั้นคือ string
+            foreach(string name in pets)
+            {
+                Console.WriteLine("Pets index {0}", name);
+            }
+
+            Console.ReadKey();
+            
+
+            //*Array 2 มิติ
+            //แบบไม่ระบุค่าเริ่มต้น
+            //string[,] students = new string[3, 4];
+            //แบบกำหนดค่าเริ่มต้น (ในตัวอย่างเป็น 3แถว4คอลัมน์)
+            string[,] students = {
+                            { "kong","kan","kon","khing"},
+                            { "nick","nook","num","nim"},
+                            { "suppa","shomchai","shompong","sopon"}
+            };
+
+            //การเปลี่ยนค่าในarray
+            students[2, 1] = "shomchaieiei";
+
+
+            //*เข้าถึงข้อมูลใน array2 มิติ
+            //แถว1 (แถวที่0)
+            Console.WriteLine(students[0,0]);
+            Console.WriteLine(students[0, 1]);
+            Console.WriteLine(students[0, 2]);
+            Console.WriteLine(students[0, 3]);
+            Console.WriteLine("***************");
+            //แถว2 (แถวที่1)
+            Console.WriteLine(students[1, 0]);
+            Console.WriteLine(students[1, 1]);
+            Console.WriteLine(students[1, 2]);
+            Console.WriteLine(students[1, 3]);
+            Console.WriteLine("***************");
+            //แถว3 (แถวที่2)
+            Console.WriteLine(students[2, 0]);
+            Console.WriteLine(students[2, 1]);
+            Console.WriteLine(students[2, 2]);
+            Console.WriteLine(students[2, 3]);
+
+            //*การหาขนาด Array 2 มิติ
+            Console.WriteLine("Student Row = {0}",students.GetLength(0));
+            Console.WriteLine("Student Colum = {0}", students.GetLength(1));
+            Console.WriteLine("Student all data in array = {0}", students.Length);
+             Console.ReadKey();
+            
+
+            //*การใช้ For loop ใน array 2 มิติ
+            string[,] students = {
+                            { "kong","kan","kon","khing"},
+                            { "nick","nook","num","nim"},
+                            { "suppa","shomchai","shompong","sopon"}
+            };
+
+            for (int row = 0; row < students.GetLength(0); row++)
+            {
+                for (int cols = 0; cols < students.GetLength(1); cols++)
+                {
+                    Console.WriteLine("Student[{0},{1}] = {2}",row,cols,students[row, cols]);
+                }
+                Console.WriteLine("********************");
+            }
+            Console.ReadKey();
+            
+
+            //foreach ใน array 2 มิติ //จะแสดงทุกค่าใน array students
+            string[,] students = {
+                            { "kong","kan","kon","khing"},
+                            { "nick","nook","num","nim"},
+                            { "suppa","shomchai","shompong","sopon"}
+            };
+
+            foreach (string name in students)
+            {
+                Console.WriteLine(name);
+            }
+            Console.ReadKey();
+            
+
+            //*Jagged Array
+            //Array ที่เก็บ Array ที่มีขนาดแตกต่างกันได้
+            //แบบไม่ประกาศค่าเริ่มต้น ต้องกำหนดจำนวนแถว
+            //string[][] jaggy = new string[3][];
+            //jaggy[0] = new string[]{ "kong", "kam", "kaew" };
+            //jaggy[1] = new string[]{ "ying", "yong" };
+            //jaggy[2] = new string[]{ "num","nim"};
+
+            //เขียนลดรูป
+            string[][] jaggy = {
+            new string[] { "kong", "kam", "kaew" },
+            new string[] { "ying", "yong" },
+            new string[] { "num", "nim" },
+            new string[] { "sonpong"}
+            };
+            //เปลี่ยนแปรงค่าใน jagged array
+            jaggy[0][1] = "Jiji";
+            //Console.WriteLine(jaggy[0][1]);
+            //Console.ReadKey();
+            
+            //การเข้าถึงสมาชิกทุกตัวใน jagged array
+            for(int row = 0;row<jaggy.Length;row++)
+            {
+                //Console.WriteLine("Row = {0}",row);
+                for(int cols=0; cols < jaggy[row].Length; cols++)
+                {
+                    //Console.WriteLine(jaggy[row][cols]);
+                    Console.WriteLine("Jagged Array[{0}][{1}] = {2}", row, cols, jaggy[row][cols]);
+                }
+                //Console.WriteLine("******************");
+            }
+            Console.ReadKey();
+            */
+
+            /*
+            //การเรียกใช้ method
+            sayHi();
+            sayThailand("Aom");
+            //
+            calculator(500,100);
+            //
+            Console.WriteLine(getIPAddress());
+            //
+            bool result = checkNumber();
+            if (result)
+            {
+                Console.WriteLine("The number is Even({0}) number",result);
+            }
+            else
+            {
+                Console.WriteLine("The number is Odd({0}) number",result);
+            }
+            //
+
+            Console.WriteLine("Sum = {0}", Calcurate(50, 65));
+            Console.WriteLine("Max = {0}", maxNumber(12,16));
+            //
+
+            int[] scoreMatch = { 55, 85, 65, 75, 100, 99 };
+            int[] scoreArt = { 90, 80, 77, 68 };
+            Console.Write("Match  : ");
+            displayScore(scoreMatch);
+            Console.WriteLine("Max : {0}",  findMaxInArray(scoreMatch));
+            int maxScoreArt = findMaxInArray(scoreArt);
+            displayScore(scoreArt);
+            Console.WriteLine("Max : {0}", maxScoreArt);
+            //
+
+            int[] scoreMatch = { 55, 85, 65, 75, 100, 99 };
+            int[] scoreArt = { 90, 80, 77, 68 };
+            Console.WriteLine("Clone score match :");
+            int[] cloneScore = copyArray(scoreMatch);
+            for (int i = 0;i< cloneScore.Length;i++)
+            {     
+                Console.WriteLine(cloneScore[i]);
+            }
+            */
+
+
+            Console.ReadKey();
+
+        }
+
+
+        //*Method แบบไม่มีการรับค่า จะมี keyword void นำหน้า
+        static void sayHi()
+        {
+            //คำสั่งที่ทำงานในเมธอด
+            Console.WriteLine("Hello C#");
+        }
+
+        //*Method ที่ีมีการรับค่าเข้ามาทำงาน
+        static void sayThailand(string message)
+        {
+            Console.WriteLine("Sawadee "+message);
+        }
+
+        //ex. แสดง ชื่อนามสกุล ที่อยู่
+        static void showData(string fname,string lname,string address)
+        {
+            Console.WriteLine("Name = {0} {1}",fname, lname);
+            Console.WriteLine("Address = {0}", address);
+        }
+
+        static void calculator(int x , int y)
+        {
+            int result = x + y;
+            Console.WriteLine("Result = {0}", result);
+        }
+        //*Method ที่มีการส่งค่าออกมาทำงานด้านนอก //ex รับคะแนนมา แล้วส่งเกรดออกไป
+
+        static string getIPAddress()
+        {
+            return "1.1.1.1";
+        }
+
+        static bool checkNumber()
+        {
+            int number = 51;
+            if (number % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+ 
+        // *Method ที่ทั้งรับและส่งค่าออกมาทำงานด้านนอก
+        static int Calcurate(int x,int y)
+        {
+            return x + y;
+        }
+
+        static int maxNumber(int x,int y)
+        {
+            if(x>y){
+                return x;
+            }
+            else
+            {
+                return y;
+            }
+        }
+        // Method ที่รับค่า Array มาแสดงผล 
+        static void displayScore(int []arrScore)
+        {
+            Console.Write("Score = {");
+            for(int i = 0; i < arrScore.Length; i++)
+            {
+                Console.Write(arrScore[i]);
+                if (i < arrScore.Length - 1)
+                {
+                    Console.Write(",");
+                }
+            }
+            Console.Write("}");
+            Console.WriteLine();
+        }
+
+        //Method ที่รับค่า array และ return ข้อมูล
+        static int findMaxInArray(int[] arr)
+        {
+            int maxScore = arr[0];
+            for (int i=0;i < arr.Length; i++)
+            { 
+                if (maxScore < arr[i])
+                {
+                    maxScore = arr[i];
+                }
+            }
+            return maxScore;   
+        }
+
+        //Method ที่รับค่า array แล้ว return array ออกมา
+        static int[] copyArray(int[] originalArr)
+        {
+            int[] newArray = new int[originalArr.Length];
+            for (int i =0;i < newArray.Length;i++)
+            {
+                newArray[i] = originalArr[i];     
+            }
+            return newArray;
+        }
+    }
+}
