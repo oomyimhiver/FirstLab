@@ -1,1 +1,37 @@
+using System;
+namespace OOPTutorial
+{
+	 class Accounting:Employee,General //การสืบทอดลูกสามารถไปแก้ไขแม่ได้เลยเช่นไปการเปลี่ยนเงินเดือน 
+	{
+		private string gender;
+
+		public Accounting(string name, int salary,string gender):base(name,salary)
+		{
+			this.gender = gender;	
+		}
+
+        public override double reportIncome()
+        {
+            return base.Salary * 12;
+        }
+
+        public string showBonus()
+        {
+           return "Bonus 20%";
+        }
+
+        public override void showEmployee()
+        {
+            Console.WriteLine("Name " + base.Name);
+            Console.WriteLine("Salaly " + base.Salary);
+			Console.WriteLine("Gender " + this.gender);
+            Console.WriteLine("-------------------");
+        }
+
+        public void showUnifrom()
+        {
+            Console.WriteLine("Uniform - Write color");
+        }
+    }
+}
 
