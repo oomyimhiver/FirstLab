@@ -35,3 +35,203 @@ namespace OOPTutorial
     }
 }
 
+***************
+
+using System;
+namespace OOPTutorial
+{
+	sealed class Company //sealed ทำให้ classนั้นๆ มี class ลูกไม่ได้
+	{
+		public static string cname = "LotusxRose" ;
+		public static string founder = "Manasanan";
+		public static List<Employee> employees = new List<Employee>();
+
+		public static void addEmployee(Employee person)
+		{
+			employees.Add(person);
+		}
+
+		public static void getEmployees()
+		{
+			foreach(Employee person in employees)
+			{
+				person.showEmployee();
+			}
+		}
+	}
+}
+
+
+
+******************
+
+using System;
+namespace OOPTutorial
+{
+    abstract class Employee 
+    {
+        //field
+        private string name;
+        private int salary;
+        protected string officeName = "ManasStudio";
+
+
+        public Employee()
+        {
+            Console.WriteLine("Create employee object");
+        }
+        //parameter constructor
+        public Employee(string nameValue, int salaryValue)
+        {
+            this.name = nameValue;
+            this.salary = salaryValue;
+            
+
+        }
+
+        //C# จะมี propertyใช้แทน getter setter เช่น getName ไม่ต้องเขียนเองทั้งหมด
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        //property แบบย่อ
+        public int Salary
+        {
+            get { return salary; }
+            set { salary = value; }
+        }
+
+        public virtual void showEmployee()
+        {
+            Console.WriteLine("Name " + this.Name);
+            Console.WriteLine("Salaly " + this.Salary);
+            Console.WriteLine("-------------------");
+        }
+
+        public abstract double reportIncome();
+
+    }
+
+
+
+}
+
+**********************
+
+using System;
+namespace OOPTutorial
+{
+	 interface General
+	{
+		void showUnifrom();
+		string showBonus();
+	}
+}
+
+**********************
+
+using System;
+namespace OOPTutorial
+{
+	class IT :Employee,General
+	{
+		private int exp;
+        public IT(string name, int salry, int exp) : base(name, salry)
+        {
+            this.exp = exp;
+        }
+
+        public override double reportIncome()
+        {
+            return (base.Salary * 12) * this.exp;
+        }
+
+        public string showBonus()
+        {
+            return "Bonus - 55%";
+        }
+
+        public override void showEmployee()
+        {
+            Console.WriteLine("Name " + base.Name);
+            Console.WriteLine("Salaly " + base.Salary);
+            Console.WriteLine("Exp " + this.exp);
+            Console.WriteLine("-------------------");
+        }
+
+        public void showUnifrom()
+        {
+            Console.WriteLine("Uniform - Black Color");
+        }
+    }
+}
+
+*************************
+
+using System;
+namespace OOPTutorial
+{
+	 class Sale:Employee,General
+	{
+		private string area;
+        private int commission = 10000;
+
+		public Sale(string name,int salary,string area):base(name,salary)
+		{
+			this.area = area;
+		}
+
+        public override double reportIncome()
+        {
+            return (base.Salary * 12) + (commission * 12);
+        }
+
+        public string showBonus()
+        {
+            return "Bonus - 50%";
+        }
+
+        public override void showEmployee()
+        {
+            Console.WriteLine("Name " + base.Name);
+            Console.WriteLine("Salaly " + base.Salary);
+            Console.WriteLine("Area " + this.area);
+            Console.WriteLine("-------------------");
+        }
+
+        public void showUnifrom()
+        {
+            Console.WriteLine("Uniform - Pink Color");
+        }
+    }
+}
+
+**********************
+// See https://aka.ms/new-console-template for more information
+
+using System;
+
+namespace OOPTutorial // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+            Accounting emp1 = new Accounting("jane", 50000, "female");
+            Sale emp2 = new Sale("Jojo",100000,"chonburi");
+            IT emp3 = new IT("Nut", 50000, 5);
+
+            emp1.showUnifrom();
+            emp2.showUnifrom();
+            emp2.Name = "Ingfha";
+            Console.WriteLine(emp2.Name +"  - "+ emp2.showBonus());
+            emp3.showUnifrom();
+            
+            Console.ReadKey();
+
+        }
+    }
+}
