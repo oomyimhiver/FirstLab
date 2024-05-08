@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>หน้าแรก</title>
+{%endblock%}
+
+{%block content%}
+<h2>ข้อมูลประชากรทั้งหมด</h2>
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">
+    <strong>{{message}}</strong>
+  </div>
+  
+  {% endfor %}
+{% endif %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">age </th>
+            <th scope="col">วันที่เพิ่มข้อมูล </th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete </th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for person in all_person %}
+            <tr>
+                <th scope="row">{{person.id}}</th>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.date}}</td>
+                <td><a href="edit/{{person.id}}">แก้ไข</a></td>
+                <td><a href="delete/{{person.id}}"
+                onclick="return confirm('คุณต้องการลบ {{person.name}} หรือไม่')"
+                  >ลบ</a></td>
+            {% endfor %}
+        </tbody>
+      </table>
+
+{%endblock%}
