@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            height: 4000px;
+        }
+        .b{
+            width: 100px;
+            height: 100px;
+        }
+
+        .con{
+            position: relative;
+           width: 500px;
+           height: 500px;
+           background-color: darkslategrey;     
+        }
+
+        #b1{
+            background-color: orange;
+            position: relative; /* เยื้องออกจากที่เดิมเท่าไหร่*/
+            left: 50px; /*ออกจากด้านซ้ายมา 50px */
+            top: 50px; /*ออกจากด้านบนมา 50 px */
+            z-index: 1;/* ทำให้อยู่เลเยอร์บน*/
+        }
+        #b2{
+            background-color: rgb(125, 209, 73);
+            position: absolute; /*กำหนดให้อยู่ชิกขอบแม่*/
+            top: 100px; /*ออกจากขอบบนของแม่เท่าไหร่*/
+            left: 50px; /*อออกจากขอบซ้ายของแม่เท่าไหร่*/
+        }#b3{
+            background-color: rgb(132, 51, 237);
+            position: absolute;
+            top: 200px;
+            right: 50px;
+        }#b4{
+            background-color: rgb(235, 120, 187);
+            position: fixed; /*ตรึงไว้ที้่เดิม โฆษณาน่ารำคาญนั้นแหละ*/
+        }#b5{
+            background-color: rgb(237, 22, 22);
+            position: sticky;/*ติดขอบเมื่อเลื่อนมาถึง*/
+            top:0;
+        }
+        #b6{
+            background-color: yellow;
+            position: sticky;
+            top: 0;
+            margin-top: 500px;
+        }
+    </style>
+<body>
+    <a href="#b5">b5</a>
+    <a href="#b6">b6</a>
+    <div id="b1" class="b"></div>
+<div class="con">
+    <div id="b2" class="b"></div>
+    <div id="b3" class="b"></div>
+</div>
+    <div id="b4" class="b"></div>
+    <div id="b5" class="b"></div>
+    <div id="b6" class="b"></div>
+</body>
+</html>

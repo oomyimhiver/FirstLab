@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            border : 1px solid red;
+        }
+        span{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h>รายการสินค้า</h>
+    <!-- cellpadding คือ เพิ่มพิ้นที่การแสดงผม cellspacing คือ เพิ่มขนาดเส้นตาราง -->
+    <table border="1" cellpadding="10" cellspacing = "5">
+        <thead> <!--หัวตาราง จำนวนแถวแนวตั้ง--> 
+            <th>รหัสสินค้า</th>
+           <th>ภาพสินค้า</th>
+           <th>ชื่อสินค้า</th>
+            <th>ราคา</th>
+            <th>ดำเนินการ</th>
+        </thead>
+        <tbody align="center"> <!--เนื้อหา-->
+            <tr bgcolor ="pink"> <!--จำนวนแถวแนวนอน-->
+            <td>001</td> <!--ต้องเท่ากับจำนวนหัวตาราง-->
+            <td>
+                <img src="https://lzd-img-global.slatic.net/g/p/9a08d5223a68d69bb21456918b745304.jpg_720x720q80.jpg" alt="ยาง24/17.5" width="50px" height="50px">
+            </td>
+            <td bgcolor="red">ยางใน24/1.75</td>
+            <td>80</td>
+            <td rowspan="2"> <!--การผสานcell แนวตั้ง เลขคือบอกว่ากินไปกี่cell -->
+                <a href="#">สั่งซื้อ</a>
+            </td>
+            </tr>
+            <tr bgcolor = "yellow" >
+                <td>002</td> <!--ต้องเท่ากับจำนวนหัวตาราง-->
+                <td>
+                    <img src="https://www.bigthailand.com/assets-static/assets/portal-assets/79072/product/images/1475054108_TH-10063359806/d14aa05064ee5790b79c8bdee5979c44_6385b1b44e6ae__1200x1200.jpg" alt="ยาง17/250" width="50px" height="50px">
+                </td>
+                <td bgcolor="blue">ยางใน17/250</td>
+                <td>70</td>
+            </tr>
+        </tbody>
+        <tfoot align="right">
+            <!-- colspen การผสานcell แนวนอน เลขคือบอกว่ากินไปกี่cell ช่องที่โดนกินจะขยับไปอัตโนมัติ-->
+            <td colspan="5"><strong>ราคารวม : 150 บาท</strong></td>
+        
+        </tfoot>
+    </table>
+    <!-- Inline element อ้างอิงพื้นที่ตามเนื้อหา -->
+<span>manasanan</span>
+<span>manasanan</span>
+<span>manasanan</span>
+<hr>
+<!-- Block element ยืดเต็มจอใช้ div -->
+<div>manasanan</div>
+<div>manasanan</div>
+<div>manasanan</div>
+
+</body>
+</html>

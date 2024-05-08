@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Sriracha&display=swap');
+
+#message{
+    color:azure
+}
+h1.title{
+    color: rgb(15, 217, 258);
+    text-decoration: overline;
+    font-family: 'Sriracha', cursive;
+}
+.article{
+    border: solid;
+    border-color: rgb(255, 200, 0);
+    color: hsl(175, 100%,50%);
+    font-family: 'Sriracha', cursive;
+    text-align: right;
+}
+*{
+    font-size: 111%;
+    background-color:rgba(0, 50, 100,0.2);
+}
+.title{
+    text-decoration: line-through;
+}

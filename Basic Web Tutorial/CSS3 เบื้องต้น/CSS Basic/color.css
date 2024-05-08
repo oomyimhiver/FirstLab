@@ -1,0 +1,32 @@
+h1{
+    font-family: "EB Garamond", serif;
+    font-size: 25px;
+    text-align: center;
+    font-style: normal;
+}
+
+
+table {
+    margin: auto;
+}
+th{
+    width: 150px;
+    height: 300px;
+    border: 6px solid white;
+}
+
+#red{
+    background: rgb(250, 104, 104);
+  
+}
+
+#yellow{
+    background: rgb(237, 248, 115);
+}
+
+#pink{
+    background: rgb(255, 163, 238);
+}
+#blue{
+    background: rgb(135, 147, 255);
+}

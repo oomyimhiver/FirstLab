@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+.con{
+    display: flex;
+    flex-direction: column;
+    /* จะได้ตำแหน่งตรงข้ามกับทิศทางเช่นให้่ชิดซ้ายจากแยกy */
+    align-items: flex-start;
+    height: 50vh;
+
+}
+
+.item{
+    color:yellow;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 200px;
+    background-color: blueviolet;
+}
+</style>
+</head>
+<body>
+    <div class="con">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item" style="align-self: flex-end;">item3</div>
+    </div>
+    
+</body>
+</html>
